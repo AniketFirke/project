@@ -12,19 +12,19 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t aniketfirke/myapp:v1 .'
+                sh 'docker build -t aniketfirke/myapp:v1 .'
             }
         }
 
         stage('Docker Login') {
             steps {
-                bat 'docker login -u YOUR_DOCKERHUB_USERNAME -p YOUR_DOCKERHUB_PASSWORD'
+                sh 'docker login -u YOUR_DOCKERHUB_USERNAME -p YOUR_DOCKERHUB_PASSWORD'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push aniketfirke/myapp:v1'
+                sh 'docker push aniketfirke/myapp:v1'
             }
         }
 
